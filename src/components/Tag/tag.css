@@ -1,0 +1,35 @@
+.principal-tag,
+.category-tag {
+  /*Style*/
+  border-radius: 0.9375rem;
+
+  /*Layout*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*Text*/
+  color: var(----color-gray-light, #f5f5f5);
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.principal-tag {
+  /*Layout*/
+  width: 18.55138rem;
+  height: 5.75rem;
+
+  /*Text*/
+  font-size: 2.5rem;
+}
+
+.category-tag {
+  /*Layout*/
+  width: 27rem;
+  height: 4.375rem;
+
+  /*Text*/
+  font-size: 1.5rem;
+}

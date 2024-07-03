@@ -1,0 +1,24 @@
+.button {
+  /*Button styles*/
+  all: unset;
+  border: 2px solid;
+  border-color: var(--x-color-gray-light);
+  border-radius: 15px;
+  box-sizing: border-box;
+  height: 54px;
+  position: relative;
+  width: 180px;
+
+  /*Text*/
+  text-align: center;
+  color: #ffffff;
+  font-family: "Source Sans Pro-Black", Helvetica;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.button-link-selected {
+  
+}

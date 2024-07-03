@@ -1,0 +1,57 @@
+:root {
+  --variable-collection-backend: rgba(0, 200, 111, 1);
+  --variable-collection-blue: rgba(34, 113, 209, 1);
+  --variable-collection-dark-grey: rgba(38, 38, 38, 1);
+  --variable-collection-error: rgba(229, 57, 53, 1);
+  --variable-collection-frontend: rgba(107, 209, 255, 1);
+  --variable-collection-inov-gest-o: rgba(255, 186, 5, 1);
+  --variable-collection-light-gray: rgba(165, 165, 165, 1);
+  --x-color-gray-light: rgba(245, 245, 245, 1);
+  --x-color-frontend: rgba(107, 209, 255, 1);
+  --title-big-font-family: "Roboto", Helvetica;
+  --title-big-font-size: 60px;
+  --title-big-font-style: normal;
+  --title-big-font-weight: 400;
+  --title-big-letter-spacing: 0px;
+  --title-big-line-height: normal;
+}
+
+html body {
+  font-family: "Source Sans Pro-Black", Helvetica, "Roboto";
+  height: 100%;
+  overflow-y: scroll; /* Fuerza la presencia del scrollbar vertical */
+}
+
+/*Scrollbar*/
+
+/* global.css */
+
+/* Estilo para todo el scrollbar */
+::-webkit-scrollbar {
+  width: 16px; /* Ancho del scrollbar */
+  height: 16px; /* Alto del scrollbar para scroll horizontal */
+}
+
+/* Estilo para el track del scrollbar */
+::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Color del track, un tono claro */
+  border-radius: 8px; /* Bordes redondeados del track */
+}
+
+/* Estilo para el thumb del scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #4285f4; /* Color del thumb, azul */
+  border-radius: 8px; /* Bordes redondeados del thumb */
+  border: 3px solid #e0e0e0; /* Añade un borde para dar espacio entre el thumb y el track */
+}
+
+/* Estilo para el thumb del scrollbar al pasar el cursor */
+::-webkit-scrollbar-thumb:hover {
+  background: #3367d6; /* Color del thumb al pasar el cursor, azul más oscuro */
+}
+
+/* Para Firefox */
+body {
+  scrollbar-width: auto; /* Ancho del scrollbar: auto, thin, none */
+  scrollbar-color: #4285f4 #e0e0e0; /* Color del thumb y del track */
+}

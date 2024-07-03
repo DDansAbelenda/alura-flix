@@ -1,0 +1,88 @@
+.banner {
+  position: relative;
+  height: 100vh;
+  background-image: url("banner-background.png"); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    12,
+    44,
+    85,
+    0.5
+  ); /* Ajusta el color y la opacidad aquí */
+  z-index: 1;
+}
+
+/*Content section*/
+.banner .content {
+  /*Layout*/
+  position: relative;
+  z-index: 2;
+  width: 85.23613rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  gap: 5rem;
+  margin-top: 12rem;
+}
+
+/*Text section*/
+.wrapper-text {
+  /*Layout*/
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  width: 45%;
+  margin: 0;
+  padding: 0;
+}
+.wrapper-text .wrapper-text-title {
+  /*Layout*/
+  width: 20.80763rem;
+
+  /*Text*/
+  color: var(----color-gray-light, #f5f5f5);
+
+  /* Text */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.wrapper-text .wrapper-text-paragraph {
+  color: var(----color-gray-light, #f5f5f5);
+
+  /* Text */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+/*Video Section*/
+.wrapper-video {
+  /*Layout*/
+  width: 52%;
+  height: 21rem;
+  flex-shrink: 0;
+
+  /* Style */
+  box-shadow: 0px 0px 17px 8px #6bd1ff inset;
+  border-radius: 0.9375rem;
+  border: 5px solid var(--x-color-frontend, #6bd1ff);
+  background: url("initial-video.png") lightgray 50% / cover no-repeat;
+}
