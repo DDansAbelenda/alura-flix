@@ -15,7 +15,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative; /*Es necesario declararla para el uso de z-index*/
-  z-index: 2;  /*Posición con respecto al resto de elementos*/
+  z-index: 2; /*Posición con respecto al resto de elementos*/
 }
 
 /*Image*/

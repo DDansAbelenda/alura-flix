@@ -1,7 +1,25 @@
+import PropTypes from "prop-types";
 import Tag from "../Tag";
 import "./banner.css";
+import styled from "styled-components";
 
-const Banner = () => {
+
+const WrapperVideo = styled.div`
+  /*Layout*/
+  width: 52%;
+  height: 21rem;
+  flex-shrink: 0;
+  
+  /* Style */
+  box-shadow: 0px 0px 17px 8px #6bd1ff inset;
+  border-radius: 0.9375rem;
+  border: 5px solid ${props => props.color};
+  background: url(${props => props.imagen}) lightgray 50% / cover no-repeat;
+  `
+
+const Banner = ({ video, categoria }) => {
+  if (!video || !categoria) return null; // Verifica que video y categoria estén definidos
+
   return (
     <section className="banner">
       {/* Overlay */}
@@ -12,8 +30,8 @@ const Banner = () => {
         {/* Sección de texto*/}
         <div className="wrapper-text">
           <Tag
-            color="var(--x-color-frontend)"
-            text="FRONT END"
+            color={categoria.color}
+            text={categoria.nombre}
             classNameTag="principal-tag"
           />
           <h2 className="wrapper-text-title">Bienvenido</h2>
@@ -24,10 +42,22 @@ const Banner = () => {
           </p>
         </div>
         {/*Sección de video principal */}
-        <div className="wrapper-video"></div>
+        <WrapperVideo color={categoria.color} imagen={video.imagen} />
       </div>
     </section>
   );
+};
+
+Banner.propTypes = {
+  video: PropTypes.shape({
+    imagen: PropTypes.string.isRequired
+  }).isRequired,
+  categoria: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    nombre: PropTypes.string.isRequired // Add this line
+  }).isRequired,
+  color: PropTypes.string.isRequired,
+  imagen: PropTypes.string.isRequired
 };
 
 export default Banner;

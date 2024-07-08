@@ -1,0 +1,10 @@
+export const actionConst = {
+  CREATE_VIDEO: 1,
+  UPDATE_VIDEO: 2,
+  DELETE_VIDEO: 3,
+  VIEW_VIDEO: 4,
+  OPEN_EDIT_POPUP: 5,
+  CLOSE_EDIT_POPUP: 6,
+  FETCH_VIDEOS: 7,
+  FETCH_CATEGORY: 8,
+};

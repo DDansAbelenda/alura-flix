@@ -4,13 +4,13 @@ import "./header.css";
 import logo from "./logo.png";
 
 const Header = () => {
- 
+
   const location = useLocation(); // ruta en la que se encuentra
 
   return (
     <header className="header-container">
       <img src={logo} alt="Logo de Alura" className="logo-img" />
-      
+
       {/* NAVBAR */}
       <section className="buttons-container">
         <HeaderLink

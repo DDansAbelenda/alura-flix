@@ -29,8 +29,8 @@
   position: relative;
   z-index: 2;
   width: 85.23613rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   box-sizing: border-box;
   display: flex;
   align-items: stretch;
@@ -73,16 +73,3 @@
   line-height: normal;
 }
 
-/*Video Section*/
-.wrapper-video {
-  /*Layout*/
-  width: 52%;
-  height: 21rem;
-  flex-shrink: 0;
-
-  /* Style */
-  box-shadow: 0px 0px 17px 8px #6bd1ff inset;
-  border-radius: 0.9375rem;
-  border: 5px solid var(--x-color-frontend, #6bd1ff);
-  background: url("initial-video.png") lightgray 50% / cover no-repeat;
-}
