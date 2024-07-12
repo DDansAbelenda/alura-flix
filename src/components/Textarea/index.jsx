@@ -13,7 +13,7 @@ const Textarea = ({ value, title, classNameType, rows, placeholder = "", require
             <label>{title}</label>
             <textarea
                 value={value}
-                className={classNameType}
+                className={`field ${classNameType}`}
                 rows={rows}
                 placeholder={placeholder}
                 required={required}

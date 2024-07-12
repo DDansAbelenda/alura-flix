@@ -9,7 +9,7 @@ const SelectField = ({ value, categorias, title, classNameType, placeholder = ""
   return (
     <div className="input-wrapper">
       <label>{title}</label>
-      <select value={value} className={classNameType} required={required} onChange={handleChange}>
+      <select value={value} className={`field ${classNameType}`} required={required} onChange={handleChange}>
         {
           placeholder !== "" &&
           <option value="" disabled defaultValue="" hidden>

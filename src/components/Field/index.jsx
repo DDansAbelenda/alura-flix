@@ -13,7 +13,7 @@ const Field = ({ type, value, title, classNameType, placeholder = "", required, 
             <input
                 type={type}
                 value={value}
-                className={classNameType}
+                className={`field ${classNameType}`}
                 placeholder={placeholder}
                 required={required}
                 onChange={handleChange} />
