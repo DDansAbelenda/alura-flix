@@ -1,12 +1,14 @@
 import CardButton from "./CardButton";
+import ConfirmationDialog from "../../ConfirmationDialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { GlobalContext } from "../../../context/GlobalContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { actionConst } from "../../../util/actionConstants";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import useEditDialog from "../../../hooks/useEditDialog";
+import { useApiVideos } from "../../../hooks/useApiVideos";
 
 const CardContainer = styled.div`
   /*Style*/
@@ -55,22 +57,43 @@ const Card = ({ video, color }) => {
 
   //Contexto
   const { dispatch } = useContext(GlobalContext);
-
+  const { deleteVideo } = useApiVideos();
   //Hook para manipular el modal del video
   const { openDialog } = useEditDialog();
+
+  //Controlando el estado del dialog de confirmar eliminar
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   // Iconos
   const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />
   const editIcon = <FontAwesomeIcon icon={faPenToSquare} />
 
-  // Funciones para eliminar y editar
-  const deleteVideo = () => {
-    dispatch({
-      type: actionConst.DELETE_VIDEO,
-      payload: video.id
-    })
+  // Funciones para eliminar
+  const handleConfirmDelete = () => {
+    setShowConfirmDialog(false);
+
+    //Eliminando de la api y luego de la vista
+    deleteVideo(video.id).then(
+      (data) => {
+        dispatch({
+          type: actionConst.DELETE_VIDEO,
+          payload: data.id
+        })
+      }
+    );
+
+
   }
 
+  const handleDelete = () => {
+    setShowConfirmDialog(true);
+  }
+
+  const handleCancelDelete = () => {
+    setShowConfirmDialog(false);
+  }
+
+  //Función para abrir el dialog de editar
   const editVideoShow = (event) => {
     /* Abre el dialog, le envía al estado el video seleccionado y para manipular la posición
     donde se muestra el dialog le envía un objeto DOMRect que proporciona información sobre
@@ -82,20 +105,32 @@ const Card = ({ video, color }) => {
     const rect = cardContainer.getBoundingClientRect()
     openDialog(video, rect);
   }
+
+
+
   return (
-    <CardContainer color={color} className="card-container">
-      {/* Contenedor de la imagen */}
-      <ImageContainer color={color}>
-        <a href={video.url}>
-          <VideoImage src={video.imagen} alt={video.titulo} color={color} />
-        </a>
-      </ImageContainer>
-      {/* Contenedor de los botones */}
-      <ButtonsContainer color={color}>
-        <CardButton onClick={deleteVideo} icon={deleteIcon}>BORRAR</CardButton>
-        <CardButton onClick={(e) => { editVideoShow(e) }} icon={editIcon}>EDITAR</CardButton>
-      </ButtonsContainer>
-    </CardContainer>
+    <>
+      <CardContainer color={color} className="card-container">
+        {/* Contenedor de la imagen */}
+        <ImageContainer color={color}>
+          <a href={video.url}>
+            <VideoImage src={video.imagen} alt={video.titulo} color={color} />
+          </a>
+        </ImageContainer>
+        {/* Contenedor de los botones */}
+        <ButtonsContainer color={color}>
+          <CardButton onClick={handleDelete} icon={deleteIcon}>BORRAR</CardButton>
+          <CardButton onClick={(e) => { editVideoShow(e) }} icon={editIcon}>EDITAR</CardButton>
+        </ButtonsContainer>
+      </CardContainer>
+      {showConfirmDialog && (
+        <ConfirmationDialog
+          message={`¿Estás seguro de que quieres eliminar: "${video.titulo}"?`}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
+      )}
+    </>
   );
 };
 

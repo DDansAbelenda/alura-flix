@@ -69,7 +69,6 @@ const EditDialog = () => {
             descripcion: descripcion
         }
 
-        //Cargar el listado de categorías
         putVideo(newVideo).then(
             (data) => {
                 dispatch({ type: actionConst.UPDATE_VIDEO, payload: data });
@@ -77,6 +76,15 @@ const EditDialog = () => {
         );
         closeDialog();
     }
+
+    const handleReset = () => {
+        setTitulo("");
+        setCategoria("");
+        setImagen("");
+        setVideo("");
+        setDescripcion("");
+    }
+
     return (<>{
         isDialogOpen && !!videoSeleccionado &&
         <>
@@ -96,6 +104,7 @@ const EditDialog = () => {
                                 classNameType={"edit-field"}
                                 required={true}
                                 updateValueField={setTitulo}
+                                placeholder="Introduce el título del video ..."
                             />
                             <SelectField
                                 value={categoria}
@@ -104,6 +113,7 @@ const EditDialog = () => {
                                 classNameType={"edit-field"}
                                 required={true}
                                 updateValueField={setCategoria}
+                                placeholder="Introduce la categoría del video ..."
                             />
                             <Field
                                 type={"text"}
@@ -112,6 +122,7 @@ const EditDialog = () => {
                                 classNameType={"edit-field"}
                                 required={true}
                                 updateValueField={setImagen}
+                                placeholder="Introduce la URL de la imagen ..."
                             />
                             <Field
                                 type={"text"}
@@ -120,6 +131,7 @@ const EditDialog = () => {
                                 classNameType={"edit-field"}
                                 required={true}
                                 updateValueField={setVideo}
+                                placeholder="Introduce la URL del video ..."
                             />
                             <Textarea
                                 value={descripcion}
@@ -128,10 +140,11 @@ const EditDialog = () => {
                                 rows={"8"}
                                 required={true}
                                 updateValueField={setDescripcion}
+                                placeholder="Introduce la descripción del video ..."
                             />
                             <div className="button-container">
                                 <Button text={"Guardar"} type={"submit"} />
-                                <Button text={"Limpiar"} type={"reset"} onClick={() => { alert("Se limpia") }} />
+                                <Button text={"Limpiar"} type={"reset"} onClick={handleReset} />
                             </div>
                         </form>
                     </div>
@@ -144,24 +157,3 @@ const EditDialog = () => {
 }
 
 export default EditDialog
-
-/**
- * const { estaAbiertoModal, fotoSeleccionada, cerrarModal } = useFotoModal();
-
-    return <>
-        {estaAbiertoModal && <>
-            <Overlay />
-            <DialogEstilizado open={!!fotoSeleccionada} onClose={() => cerrarModal()}>
-                <Imagen foto={fotoSeleccionada} expandida={true} />
-                <form method="dialog">
-                    <BotonIcono formMethod="dialog">
-                        <img src="/iconos/cerrar.png" alt="Icono de cerrar" />
-                    </BotonIcono>
-                </form>
-            </DialogEstilizado>
-        </>
-        }
-
-    </>
- * 
- */

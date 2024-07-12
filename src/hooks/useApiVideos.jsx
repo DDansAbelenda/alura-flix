@@ -75,9 +75,5 @@ export const useApiVideos = () => {
 
 
     return { getCategorias, getVideos, postVideo, putVideo, deleteVideo }
-    //const post = useCallback((url, body) => request(url, { method: 'POST', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } }), [request]);
-    //const put = useCallback((url, body) => request(url, { method: 'PUT', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } }), [request]);
-    //const del = useCallback((url) => request(url, { method: 'DELETE' }), [request]);
-    //return { data, loading, error, get, post, put, del };
 }
 

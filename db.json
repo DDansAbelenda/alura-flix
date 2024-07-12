@@ -26,14 +26,6 @@
       "descripcion": "¿Cuáles son las principales características de un programador? ¿Qué habilidades y competencias debe tener alguien que quiere seguir esa carrera? En este video Christian Velasco nos habla de las principales características de un Programador."
     },
     {
-      "id": "8ddf",
-      "titulo": "cambiando título",
-      "categoria": "1",
-      "imagen": "/img/Fronted/image-2.jpg",
-      "url": "https://www.youtube.com/embed/PztCEdIJITY?si=hfEWd-LVzlUvP_qT",
-      "descripcion": "¿A veces cuando estás programando sientes dificultades en saber en qué momento utilizar let, var o const para declarar una variable? En este video te sacamos estas dudas, además de explicarte lo que es escopo global y local en JavaScript."
-    },
-    {
       "id": "63df",
       "titulo": "Cuando usar let, var y const",
       "categoria": "1",
