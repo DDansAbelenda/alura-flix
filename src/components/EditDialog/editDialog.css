@@ -1,0 +1,79 @@
+.dialog-container {
+  /*Style*/
+  background: #03122f;
+  /*Size*/
+  padding: 5.25rem 0rem;
+  border: 0;
+  width: 70%;
+  /*Layout*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 10;
+  position: absolute;
+  /*Style*/
+  border-radius: 0.9375rem;
+  border: 5px solid var(--FrontEnd, #6bd1ff);
+  background: #03122f;
+}
+
+.exit-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-shrink: 0;
+}
+
+.exit-button img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dialog-container .dialog-content {
+  /*Layout*/
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /*Size*/
+  width: 60%;
+  /**/
+}
+
+.dialog-container .dialog-content .title {
+  color: var(--Blue, #2271d1);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+/*Estilos del formulario*/
+.edit-form {
+  /*Layout*/
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  /*Size*/
+  width: 100%;
+}
+
+/*Estilos para los campos*/
+
+textarea {
+  resize: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button:hover {
+  border-radius: 0.625rem;
+  border: 2px solid var(--Blue, #2271d1);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 12px 4px #2271d1 inset;
+}

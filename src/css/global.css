@@ -14,7 +14,9 @@
   --title-big-font-weight: 400;
   --title-big-letter-spacing: 0px;
   --title-big-line-height: normal;
-  --color-black-dark:rgba(0, 0, 0, 0.90);
+  --color-black-dark: rgba(0, 0, 0, 0.9);
+  --scrollbar-base-color: #1b2839;
+  --scrollbar-bar-color: #2271d1;
 }
 
 html body {
@@ -26,8 +28,6 @@ html body {
 
 /*Scrollbar*/
 
-/* global.css */
-
 /* Estilo para todo el scrollbar */
 ::-webkit-scrollbar {
   width: 16px; /* Ancho del scrollbar */
@@ -36,24 +36,26 @@ html body {
 
 /* Estilo para el track del scrollbar */
 ::-webkit-scrollbar-track {
-  background: #e0e0e0; /* Color del track, un tono claro */
+  background: var(--scrollbar-base-color); /* Color del track, un tono claro */
   border-radius: 8px; /* Bordes redondeados del track */
 }
 
 /* Estilo para el thumb del scrollbar */
 ::-webkit-scrollbar-thumb {
-  background: #4285f4; /* Color del thumb, azul */
+  background: var(--scrollbar-bar-color); /* Color del thumb, azul */
   border-radius: 8px; /* Bordes redondeados del thumb */
-  border: 3px solid #e0e0e0; /* Añade un borde para dar espacio entre el thumb y el track */
+  border: 3px solid var(--scrollbar-base-color); /* Añade un borde para dar espacio entre el thumb y el track */
 }
 
 /* Estilo para el thumb del scrollbar al pasar el cursor */
 ::-webkit-scrollbar-thumb:hover {
-  background: #3367d6; /* Color del thumb al pasar el cursor, azul más oscuro */
+  background: var(
+    --scrollbar-bar-color
+  ); /* Color del thumb al pasar el cursor, azul más oscuro */
 }
 
 /* Para Firefox */
 body {
   scrollbar-width: auto; /* Ancho del scrollbar: auto, thin, none */
-  scrollbar-color: #4285f4 #e0e0e0; /* Color del thumb y del track */
+  scrollbar-color: var(--scrollbar-bar-color) var(--scrollbar-base-color); /* Color del thumb y del track */
 }

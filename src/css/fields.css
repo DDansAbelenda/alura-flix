@@ -1,0 +1,45 @@
+/*
+* Estilos para los componentes:
+    * Field
+    * Textarea
+    * SelectField
+*/
+
+.input-wrapper {
+    /*Layout*/
+    display: flex;
+    flex-direction: column;
+    gap: 0.94rem;
+  }
+  
+  .input-wrapper label {
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem; /* 120% */
+    text-transform: capitalize;
+  }
+  
+  .edit-field {
+    /*Style*/
+    background: #03122f;
+    /*Size*/
+    padding: 0.5rem 1rem;
+    border: 3px solid var(--Blue, #2271d1);
+    border-radius: 0.625rem;
+    /*Font*/
+    color: var(--Light-Gray, #a5a5a5);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem; /* 120% */
+    text-transform: lowercase;
+  }
+  
+  label {
+    display: block;
+  }
+  

@@ -21,7 +21,7 @@ const Home = () => {
      */
     if (videos.length > 0 && categorias.length > 0) {
       const primerVideo = videos[0]; // Asume que el primer video es el que quieres mostrar
-      const categoriaDelVideo = categorias.find(categoria => categoria.nombre === primerVideo.categoria);
+      const categoriaDelVideo = categorias.find(categoria => categoria.id === primerVideo.categoria);
       const videosRestantes = videos.slice(1); // Elimina el primer video
       setVideo(primerVideo);
       setCategoria(categoriaDelVideo);
@@ -31,7 +31,7 @@ const Home = () => {
 
 
 
-  console.log("Estado desde componente Home: ", state);
+  console.log("Estado desde componente Home: ", state, categoria);
   if (!video || !categoria) return <Loading />; // Muestra el componente Loading si video o categoria no están definidos
   return (
     <main className="cards-section-container">
@@ -42,7 +42,7 @@ const Home = () => {
             <CardsSection
               key={category.id}
               category={category}
-              videos={cardsVideos.filter((video) => video.categoria === category.nombre)}
+              videos={cardsVideos.filter((video) => video.categoria === category.id)}
             />
           );
         })

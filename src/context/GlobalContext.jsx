@@ -5,7 +5,7 @@ import { createContext, useEffect, useReducer } from "react";
 import { initialState } from "./videosReducer";
 import { videosReducer } from "./videosReducer";
 import { actionConst } from "../util/actionConstants";
-import { useApiVideos } from "../hooks/VideosService";
+import { useApiVideos } from "../hooks/useApiVideos";
 //Contexto Global utilizado compartido al resto de componentes
 export const GlobalContext = createContext();
 
@@ -16,7 +16,7 @@ export const GlobalContext = createContext();
 const GlobalContextProvider = ({ children }) => {
     const reducer = videosReducer;
     const [state, dispatch] = useReducer(reducer, initialState);
-    const { getCategorias, getVideos } = useApiVideos(dispatch);
+    const { getCategorias, getVideos } = useApiVideos();
 
     //Cargar el listado de categorías
     useEffect(() => {

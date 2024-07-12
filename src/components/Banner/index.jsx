@@ -11,7 +11,7 @@ const WrapperVideo = styled.div`
   flex-shrink: 0;
   
   /* Style */
-  box-shadow: 0px 0px 17px 8px #6bd1ff inset;
+  box-shadow: 0px 0px 17px 8px ${props => props.color} inset;
   border-radius: 0.9375rem;
   border: 5px solid ${props => props.color};
   background: url(${props => props.imagen}) lightgray 50% / cover no-repeat;
@@ -34,7 +34,7 @@ const Banner = ({ video, categoria }) => {
             text={categoria.nombre}
             classNameTag="principal-tag"
           />
-          <h2 className="wrapper-text-title">Bienvenido</h2>
+          <h2 className="wrapper-text-title">Challenge React</h2>
           <p className="wrapper-text-paragraph">
             Este challenge es una forma de aprendizaje. Es un mecanismo donde
             podrás comprometerte en la resolución de un problema para poder

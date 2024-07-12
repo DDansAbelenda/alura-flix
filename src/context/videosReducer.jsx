@@ -4,27 +4,38 @@ export const initialState = {
   categorias: [],
   videos: [],
   videoSeleccionado: null,
-  modalAbierto: false
+  modalAbierto: false,
+  dialogPosition: { top: 0 }
 };
 
 export const videosReducer = (state, action) => {
   switch (action.type) {
     case actionConst.CREATE_VIDEO:
-      return;
+      return {
+        ...state,
+        videos: [...state.videos, action.payload],
+      }
     case actionConst.UPDATE_VIDEO:
-      return;
+      return {
+        ...state,
+        videos: state.videos.map((video) =>
+          video.id === action.payload.id ? action.payload : video
+        ),
+      }
     case actionConst.DELETE_VIDEO:
-      return;
+      return {
+        ...state,
+        videos: state.videos.filter((video) => video.id !== action.payload),
+      }
     case actionConst.VIEW_VIDEO:
       return;
-    case actionConst.OPEN_EDIT_POPUP:
-      console.log("OPEN EDIT POPUP")
+    case actionConst.MANAGE_OPEN_AND_CLOSE_EDIT_DIALOG:
       return {
-        ...state, videoSeleccionado: action.payload, modalAbierto: true
+        ...state,
+        videoSeleccionado: action.payload.video,
+        modalAbierto: action.payload.video != null ? true : false,
+        dialogPosition: action.payload.dialogPosition
       };
-    case actionConst.CLOSE_EDIT_POPUP:
-      console.log("CLOSE EDIT POPUP")
-      return;
     case actionConst.FETCH_VIDEOS:
       console.log("FETCH VIDEOS")
       return { ...state, videos: action.payload };
@@ -36,6 +47,16 @@ export const videosReducer = (state, action) => {
   }
 };
 
+
+/**
+ * case 'SET_FOTO_SELECCIONADA':
+            return {
+                ...state,
+                fotoSeleccionada: action.payload,
+                modalAbierto: action.payload != null ? true : false
+            };
+        
+ */
 /**
  * 
  * const initialState = {

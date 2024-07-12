@@ -45,7 +45,36 @@ export const useApiVideos = () => {
         return response;
     }, []);
 
-    return { getCategorias, getVideos }
+    const postVideo = useCallback(async (video) => {
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(video),
+            headers: { 'Content-Type': 'application/json' }
+        }
+        const response = await request('http://localhost:3000/videos', options);
+        return response
+    }, []);
+
+    const putVideo = useCallback(async (video) => {
+        const options = {
+            method: 'PUT',
+            body: JSON.stringify(video),
+            headers: { 'Content-Type': 'application/json' }
+        }
+        const response = await request(`http://localhost:3000/videos/${video.id}`, options);
+        return response;
+    }, []);
+
+    const deleteVideo = useCallback(async (id) => {
+        const options = {
+            method: 'DELETE',
+        }
+        const response = await request(`http://localhost:3000/videos/${id}`, options);
+        return response;
+    }, []);
+
+
+    return { getCategorias, getVideos, postVideo, putVideo, deleteVideo }
     //const post = useCallback((url, body) => request(url, { method: 'POST', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } }), [request]);
     //const put = useCallback((url, body) => request(url, { method: 'PUT', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } }), [request]);
     //const del = useCallback((url) => request(url, { method: 'DELETE' }), [request]);

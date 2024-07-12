@@ -1,6 +1,5 @@
 .banner {
   position: relative;
-  height: 100vh;
   background-image: url("banner-background.png"); /* Reemplaza con la ruta de tu imagen */
   background-size: cover;
   background-position: center;
@@ -26,16 +25,12 @@
 /*Content section*/
 .banner .content {
   /*Layout*/
-  position: relative;
-  z-index: 2;
-  width: 85.23613rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  box-sizing: border-box;
   display: flex;
-  align-items: stretch;
   gap: 5rem;
-  margin-top: 12rem;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12rem 5rem 7rem;
 }
 
 /*Text section*/
@@ -72,4 +67,3 @@
   font-weight: 800;
   line-height: normal;
 }
-
