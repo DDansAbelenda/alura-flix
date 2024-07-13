@@ -6,14 +6,27 @@ import Header from "../../components/Header";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import EditDialog from "../../components/EditDialog";
+import Notification from "../../components/Notification";
 /* Context */
 import { GlobalContext } from "../../context/GlobalContext";
+import useNotification from "../../hooks/useNotification";
 const Base = () => {
   const { state } = useContext(GlobalContext);
-  const { videoSeleccionado } = state;
+  const { videoSeleccionado, notifications } = state;
+  const { removeNotification } = useNotification();
   return (
     <main>
       <Header />
+      {   // Trabajando con las notificaciones
+        notifications.map((notification, index) => (
+          <Notification
+            key={index}
+            message={notification.message}
+            type={notification.type}
+            onClose={() => removeNotification(index)}
+          />
+        ))
+      }
       <Container>
         {/* Outlet es el marcador de posición para las rutas hijas */}
         <Outlet />

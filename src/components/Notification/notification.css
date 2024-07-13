@@ -1,0 +1,53 @@
+/* Notification.css */
+.notification {
+  position: fixed;
+  z-index: 100;
+  bottom: 0.625rem; /* 10px / 16 */
+  right: 0.625rem; /* 10px / 16 */
+  width: 18.75rem; /* 300px / 16 */
+  margin-bottom: 0.625rem; /* 10px / 16 */
+  padding: 0.9375rem; /* 15px / 16 */
+  border-radius: 0.3125rem; /* 5px / 16 */
+  color: white;
+  font-size: 1rem; /* 16px / 16 */
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* 0 2px 5px */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.notification.success {
+  background-color: #43a047;
+}
+
+.notification.error {
+  background-color: #d32f2f;
+}
+
+.notification.info {
+  background-color: #1976d2;
+}
+
+.notification.warning {
+  background-color: #ffa000;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  flex: 1;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1.25rem; /* 20px / 16 */
+  margin-left: 0.625rem; /* 10px / 16 */
+}
+
+.close-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

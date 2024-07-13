@@ -1,15 +1,40 @@
 import "./new.css";
 import Field from '../../components/Field';
+import Button from "../../components/Button";
+import { useContext, useEffect } from "react";
 import SelectField from "../../components/SelectField";
 import Textarea from "../../components/Textarea";
-import Button from "../../components/Button";
-import { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useApiVideos } from "../../hooks/useApiVideos";
 import { v4 as uuidv4 } from 'uuid';
 import { actionConst } from "../../util/actionConstants"; // Import the UPDATE_VIDEO constant
+import useFormValidation from "../../hooks/useFormValidation";
+import { validate } from "../../util/validateForm";
+import { useNavigate } from 'react-router-dom';
+import useNotification from "../../hooks/useNotification";
+
+//Estado inicial del formulario
+const formVideo = {
+  titulo: "",
+  imagen: "",
+  categoria: "",
+  url: "",
+  descripcion: ""
+}
 
 const NewVideo = () => {
+  // Importando elementos para manipular el formulario
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    handleReset,
+    values,
+    errors,
+    isValid,
+    isSubmitting,
+    touched,
+  } = useFormValidation(formVideo, validate);
 
   // Importando elementos globales
   const { state, dispatch } = useContext(GlobalContext);
@@ -17,45 +42,33 @@ const NewVideo = () => {
   //Listado de categorías
   const { categorias } = state;
 
+  //Navegación
+  const navigate = useNavigate();
 
-  const [titulo, setTitulo] = useState();
-  const [categoria, setCategoria] = useState();
-  const [imagen, setImagen] = useState();
-  const [video, setVideo] = useState();
-  const [descripcion, setDescripcion] = useState();
+  //Notificaciones
+  const { addNotification } = useNotification();
+  /*Función para manejar el envío del formulario*/
+  useEffect(() => {
+    const submit = async () => {
 
-
-  /* Funciones para manejar eventos de botones */
-  const handleSubmit = async (e) => {
-
-    e.preventDefault();
-
-    const newVideo = {
-      id: uuidv4(), // Esto generará un ID único
-      titulo: titulo,
-      categoria: categoria,
-      imagen: imagen,
-      url: video,
-      descripcion: descripcion
-    }
-
-    postVideo(newVideo).then(
-      (video) => {
-        dispatch({ type: actionConst.CREATE_VIDEO, payload: video }); // Use the imported UPDATE_VIDEO constant
-        handleReset();
+      const newVideo = {
+        id: uuidv4(), // Esto generará un ID único
+        ...values
       }
 
-    );
-  }
-
-  const handleReset = (e) => {
-    if (e != null) e.preventDefault();
-    setTitulo("");
-    setCategoria("");
-    setImagen("");
-    setVideo("");
-    setDescripcion("");
-  };
+      postVideo(newVideo).then(
+        (video) => {
+          dispatch({ type: actionConst.CREATE_VIDEO, payload: video }); // Use the imported UPDATE_VIDEO constant
+          handleReset();
+          addNotification(`El video "${video.titulo}" ha sido creado con éxito`, 'success');
+        }
+      );
+    }
+    if (isSubmitting) {
+      submit();
+      navigate('/');
+    }
+  }, [dispatch, isSubmitting, handleReset, postVideo, values, navigate, addNotification]);
 
 
   return (
@@ -70,51 +83,71 @@ const NewVideo = () => {
           <form className="save-form" onSubmit={handleSubmit}>
             <Field
               type={"text"}
-              value={titulo}
-              title={"Título"}
-              classNameType={"create-field"}
+              id={"titulo"}
+              name={"titulo"}
+              value={values.titulo}
+              title={'Título'}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder={errors.titulo && touched.titulo ? errors.titulo : "Introduce el título del video ..."}
+              classNameInput={errors.titulo && touched.titulo ? 'invalid create-field' : 'create-field'}
+              classNameLabel={errors.titulo && touched.titulo ? 'invalid' : ''}
               required={true}
-              updateValueField={setTitulo}
-              placeholder="Introduce el título del video ..."
             />
             <SelectField
-              value={categoria}
+              id={"categoria"}
+              name={"categoria"}
+              value={values.categoria}
               categorias={categorias}
               title={"Categoría"}
-              classNameType={"create-field"}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder={errors.categoria && touched.categoria ? errors.categoria : "Introduce la categoria del video ..."}
+              classNameInput={errors.categoria && touched.categoria ? 'invalid create-field' : 'create-field'}
+              classNameLabel={errors.categoria && touched.categoria ? 'invalid' : ''}
               required={true}
-              updateValueField={setCategoria}
-              placeholder="Introduce la categoría del video ..."
             />
             <Field
               type={"text"}
-              value={imagen}
-              title={"Imagen"}
-              classNameType={"create-field"}
+              id={"imagen"}
+              name={"imagen"}
+              value={values.imagen}
+              title={"URL de la imagen"}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder={errors.imagen && touched.imagen ? errors.imagen : "Introduce la ruta de la imagen ..."}
+              classNameInput={errors.imagen && touched.imagen ? 'invalid create-field' : 'create-field'}
+              classNameLabel={errors.imagen && touched.imagen ? 'invalid' : ''}
               required={true}
-              updateValueField={setImagen}
-              placeholder="Introduce la URL de la imagen ..."
             />
             <Field
               type={"text"}
-              value={video}
-              title={"Video"}
-              classNameType={"create-field"}
+              id={"url"}
+              name={"url"}
+              value={values.url}
+              title={"URL del video"}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder={errors.url && touched.url ? errors.url : "Introduce la url del video ..."}
+              classNameInput={errors.url && touched.url ? 'invalid create-field' : 'create-field'}
+              classNameLabel={errors.url && touched.url ? 'invalid' : ''}
               required={true}
-              updateValueField={setVideo}
-              placeholder="Introduce la URL del video ..."
             />
             <Textarea
-              value={descripcion}
+              id={"descripcion"}
+              name={"descripcion"}
+              value={values.descripcion}
               title={"Descripción"}
-              classNameType={"create-field"}
               rows={"8"}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder={errors.descripcion && touched.descripcion ? errors.descripcion : "Introduce la descripción del video ..."}
+              classNameInput={errors.descripcion && touched.descripcion ? 'invalid create-field' : 'create-field'}
+              classNameLabel={errors.descripcion && touched.descripcion ? 'invalid' : ''}
               required={true}
-              updateValueField={setDescripcion}
-              placeholder="Introduce la descripción del video ..."
             />
             <div className="button-container">
-              <Button text={"Guardar"} type={"submit"} />
+              <Button text={"Guardar"} type={"submit"} disabled={!isValid} />
               <Button text={"Limpiar"} type={"reset"} onClick={handleReset} />
             </div>
           </form>

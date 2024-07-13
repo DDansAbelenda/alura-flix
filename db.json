@@ -27,9 +27,9 @@
     },
     {
       "id": "63df",
-      "titulo": "Cuando usar let, var y const",
-      "categoria": "1",
+      "titulo": "Cuando usar let, var y const 1234",
       "imagen": "/img/Fronted/image-2.jpg",
+      "categoria": "1",
       "url": "https://www.youtube.com/embed/PztCEdIJITY?si=hfEWd-LVzlUvP_qT",
       "descripcion": "¿A veces cuando estás programando sientes dificultades en saber en qué momento utilizar let, var o const para declarar una variable? En este video te sacamos estas dudas, además de explicarte lo que es escopo global y local en JavaScript."
     },
@@ -84,18 +84,10 @@
     {
       "id": "p3d9",
       "titulo": "7 Soft Skills más deseadas por las empresas",
-      "categoria": "3",
       "imagen": "/img/Innovacion y gestion/image-2.jpg",
+      "categoria": "3",
       "url": "https://www.youtube.com/embed/YhR7Zp8NUzE?si=ky6cHgq598bnyowv",
       "descripcion": "Seguro que ya escuchaste hablar sobre las Soft Skills, pero ¿sabes cuáles son las 7 más buscadas por las empresas? Quédate en este video con nosotros que vamos a explicarte la importancia de estas habilidades y porque son tan requeridas en el mercado laboral."
-    },
-    {
-      "id": "8bed36d8-71cd-4780-87a2-ee3c9bf2aeb6",
-      "titulo": "¿Qué es la lógica de programación y cómo aplicarla?",
-      "categoria": "2",
-      "imagen": "/img/Backend/imagen-4.jpg",
-      "url": "https://www.youtube.com/embed/3W983Q2NzRI?si=5XwuxR4duM0DLLj2",
-      "descripcion": "Decidiste que quieres estudiar programación, pero ahora te estás preguntando ¿Qué debes estudiar primero?.\nEn este video Christian Velazco, Ingrid Silva y Jeanmarie Quijada te guiarán en el camino que debes seguir. \nHablarán acerca de la lógica de programación, como pensar de forma lógica y los conceptos que debes aprender, para dar tus primeros pasos en la programación."
     }
   ]
 }

@@ -2,28 +2,43 @@ import '../../css/fields.css'
 import PropTypes from 'prop-types';
 
 
-const Textarea = ({ value, title, classNameType, rows, placeholder = "", required, updateValueField }) => {
+const Textarea = ({
+    id,
+    name,
+    value,
+    title,
+    rows,
+    onChange,
+    onBlur,
+    placeholder = "",
+    classNameInput,
+    classNameLabel,
+    required,
+}) => {
 
-    const handleChange = (e) => {
-        updateValueField(e.target.value);
-    }
 
     return (
         <div className="input-wrapper">
-            <label>{title}</label>
+            <label className={classNameLabel}>{title}</label>
             <textarea
+                id={id}
+                name={name}
                 value={value}
-                className={`field ${classNameType}`}
                 rows={rows}
+                onChange={onChange}
+                onBlur={onBlur}
                 placeholder={placeholder}
+                className={`field ${classNameInput}`}
                 required={required}
-                onChange={handleChange} />
+                autoComplete="off"
+            />
         </div>
     )
 }
 
 Textarea.propTypes = {
-    type: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     classNameType: PropTypes.string.isRequired,
@@ -31,6 +46,10 @@ Textarea.propTypes = {
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     updateValueField: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
+    onBlur: PropTypes.func.isRequired,
+    classNameInput: PropTypes.string.isRequired,
+    classNameLabel: PropTypes.string.isRequired,
 };
 
 export default Textarea;

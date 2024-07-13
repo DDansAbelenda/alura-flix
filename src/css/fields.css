@@ -13,14 +13,21 @@
 }
 
 .input-wrapper label {
+  /*Font*/
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem; /* 120% */
-  text-transform: capitalize;
+  /*Layout*/
+  display: block;
 }
+
+.input-wrapper label.invalid {
+  color: #e53935;
+}
+
 .field {
   /*Font*/
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -28,30 +35,44 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem; /* 120% */
+  color: #fff;
   /*Size*/
   padding: 0.5rem 1rem;
   /*Style*/
   border-radius: 0.625rem;
+  border: 3px solid;
 }
-
+.field:focus {
+  outline: none;
+}
+/*Estilos para campos del formulario editar video*/
 .edit-field {
   /*Style*/
   background: #03122f;
   /*Size*/
-  border: 3px solid var(--Blue, #2271d1);
-  /*Font*/
-  color: var(--Light-Gray, #a5a5a5);
+  border-color: var(--Blue, #2271d1);
 }
 
+/*Estilos para campos del formulario crear video*/
 .create-field {
   /*Style*/
   background: #191919;
   /*Size*/
-  border: 3px solid var(--Dark-Grey, #262626);
-  /*Font*/
-  color: var(--Light-Gray, #a5a5a5);
+  border-color: var(--Dark-Grey, #262626);
 }
 
-label {
-  display: block;
+
+/*Estilos para errores*/
+.input-wrapper input.invalid,
+.input-wrapper textarea.invalid,
+.input-wrapper select.invalid {
+  border-color: #e53935;
+}
+.input-wrapper input.invalid::placeholder,
+.input-wrapper textarea.invalid::placeholder,
+.input-wrapper select.invalid {
+  color: #e53935;
+}
+.input-wrapper select.invalid option {
+  color: #fff;
 }

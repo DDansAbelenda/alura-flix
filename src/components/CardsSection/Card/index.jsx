@@ -9,6 +9,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import useEditDialog from "../../../hooks/useEditDialog";
 import { useApiVideos } from "../../../hooks/useApiVideos";
+import useNotification from "../../../hooks/useNotification";
 
 const CardContainer = styled.div`
   /*Style*/
@@ -60,6 +61,8 @@ const Card = ({ video, color }) => {
   const { deleteVideo } = useApiVideos();
   //Hook para manipular el modal del video
   const { openDialog } = useEditDialog();
+  //Hook para manipular notificaciones
+  const { addNotification } = useNotification()
 
   //Controlando el estado del dialog de confirmar eliminar
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
@@ -79,6 +82,7 @@ const Card = ({ video, color }) => {
           type: actionConst.DELETE_VIDEO,
           payload: data.id
         })
+        addNotification(`El video "${data.titulo}" ha sido eliminado con éxito`, 'success');
       }
     );
 

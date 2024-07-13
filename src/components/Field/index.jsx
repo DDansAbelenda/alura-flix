@@ -2,30 +2,49 @@ import '../../css/fields.css'
 import PropTypes from 'prop-types';
 
 
-const Field = ({ type, value, title, classNameType, placeholder = "", required, updateValueField }) => {
-    const handleChange = (e) => {
-        updateValueField(e.target.value);
-    }
+const Field = ({
+    type,
+    id,
+    name,
+    value,
+    title,
+    onChange,
+    onBlur,
+    placeholder,
+    classNameInput,
+    classNameLabel,
+    required
+}) => {
 
     return (
         <div className="input-wrapper">
-            <label>{title}</label>
+            <label className={classNameLabel}>{title}</label>
             <input
                 type={type}
+                id={id}
+                name={name}
                 value={value}
-                className={`field ${classNameType}`}
+                onChange={onChange}
+                onBlur={onBlur}
                 placeholder={placeholder}
+                className={`field ${classNameInput}`}
                 required={required}
-                onChange={handleChange} />
+                autoComplete="off"
+            />
         </div>
     )
 }
 
 Field.propTypes = {
     type: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    classNameType: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onBlur: PropTypes.func.isRequired,
+    classNameInput: PropTypes.string.isRequired,
+    classNameLabel: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     required: PropTypes.bool,
     updateValueField: PropTypes.func,

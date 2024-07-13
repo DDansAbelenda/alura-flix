@@ -3,7 +3,7 @@
   all: unset;
   border: 2px solid;
   border-color: var(--x-color-gray-light);
-  border-radius: 15px;
+  border-radius: 0.625rem;
   box-sizing: border-box;
   height: 54px;
   position: relative;
@@ -17,4 +17,15 @@
   font-weight: 900;
   letter-spacing: 0;
   line-height: 24px;
+}
+
+.button:disabled {
+  border-color: var(--variable-collection-light-gray);
+  color: var(--variable-collection-light-gray);
+}
+.button:disabled:hover {
+  border: 2px solid var(--variable-collection-light-gray) !important;
+  color: var(--variable-collection-light-gray);
+  background: transparent !important;
+  box-shadow: none !important;
 }

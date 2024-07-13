@@ -5,7 +5,9 @@ export const initialState = {
   videos: [],
   videoSeleccionado: null,
   modalAbierto: false,
-  dialogPosition: { top: 0 }
+  dialogPosition: { top: 0 },
+  notifications: [],
+  serverError: { type: "", error: false }
 };
 
 export const videosReducer = (state, action) => {
@@ -27,8 +29,6 @@ export const videosReducer = (state, action) => {
         ...state,
         videos: state.videos.filter((video) => video.id !== action.payload),
       }
-    case actionConst.VIEW_VIDEO:
-      return;
     case actionConst.MANAGE_OPEN_AND_CLOSE_EDIT_DIALOG:
       return {
         ...state,
@@ -37,11 +37,13 @@ export const videosReducer = (state, action) => {
         dialogPosition: action.payload.dialogPosition
       };
     case actionConst.FETCH_VIDEOS:
-      console.log("FETCH VIDEOS")
       return { ...state, videos: action.payload };
     case actionConst.FETCH_CATEGORY:
-      console.log("FETCH CATEGORY")
       return { ...state, categorias: action.payload };
+    case actionConst.SET_NOTIFICATIONS:
+      return { ...state, notifications: action.payload };
+    case actionConst.SET_SERVER_ERROR:
+      return { ...state, serverError: action.payload }
     default:
       return state;
   }

@@ -4,7 +4,8 @@ import "./banner.css";
 import styled from "styled-components";
 
 
-const WrapperVideo = styled.div`
+const WrapperVideo = styled.a`
+  display: block;
   /*Layout*/
   width: 52%;
   height: 21rem;
@@ -42,7 +43,7 @@ const Banner = ({ video, categoria }) => {
           </p>
         </div>
         {/*Sección de video principal */}
-        <WrapperVideo color={categoria.color} imagen={video.imagen} />
+        <WrapperVideo color={categoria.color} imagen={video.imagen} href={video.url} />
       </div>
     </section>
   );
@@ -50,7 +51,8 @@ const Banner = ({ video, categoria }) => {
 
 Banner.propTypes = {
   video: PropTypes.shape({
-    imagen: PropTypes.string.isRequired
+    imagen: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
   }).isRequired,
   categoria: PropTypes.shape({
     color: PropTypes.string.isRequired,

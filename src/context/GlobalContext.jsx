@@ -24,7 +24,12 @@ const GlobalContextProvider = ({ children }) => {
             (data) => {
                 dispatch({ type: actionConst.FETCH_CATEGORY, payload: data });
             }
-        );
+        ).catch((error) => {
+            dispatch({
+                type: actionConst.SET_SERVER_ERROR,
+                payload: { type: error.name, error: true }
+            });
+        });
     }, [getCategorias]);
 
     //Cargar el listado de videos
@@ -33,7 +38,12 @@ const GlobalContextProvider = ({ children }) => {
             (data) => {
                 dispatch({ type: actionConst.FETCH_VIDEOS, payload: data });
             }
-        );
+        ).catch((error) => {
+            dispatch({
+                type: actionConst.SET_SERVER_ERROR,
+                payload: { type: error.name, error: true }
+            })
+        });
     }, [getVideos]);
 
     return (

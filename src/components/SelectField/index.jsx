@@ -1,15 +1,33 @@
 import '../../css/fields.css'
 import PropTypes from 'prop-types'
 
-const SelectField = ({ value, categorias, title, classNameType, placeholder = "", required, updateValueField }) => {
-  const handleChange = (e) => {
-    updateValueField(e.target.value);
-  }
+const SelectField = ({
+  id,
+  name,
+  value,
+  categorias,
+  title,
+  onChange,
+  onBlur,
+  placeholder,
+  classNameInput,
+  classNameLabel,
+  required
+}) => {
+
 
   return (
     <div className="input-wrapper">
-      <label>{title}</label>
-      <select value={value} className={`field ${classNameType}`} required={required} onChange={handleChange}>
+      <label className={classNameLabel}>{title}</label>
+      <select
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        className={`field ${classNameInput}`}
+        required={required}
+      >
         {
           placeholder !== "" &&
           <option value="" disabled defaultValue="" hidden>
@@ -29,7 +47,9 @@ const SelectField = ({ value, categorias, title, classNameType, placeholder = ""
 }
 
 SelectField.propTypes = {
-  type: PropTypes.string, // Add the 'type' prop validation
+
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   categorias: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
@@ -37,6 +57,10 @@ SelectField.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   updateValueField: PropTypes.func,
+  onChange: PropTypes.func, // Add the 'onChange' prop validation
+  onBlur: PropTypes.func,
+  classNameInput: PropTypes.string,
+  classNameLabel: PropTypes.string,
 };
 
 export default SelectField
