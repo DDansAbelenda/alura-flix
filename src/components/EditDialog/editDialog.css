@@ -107,4 +107,8 @@ textarea {
   .dialog-container .dialog-content .title {
     font-size: 1.8rem;
   }
+
+  .button-container button {
+    width: 47%;
+  }
 }
