@@ -1,4 +1,8 @@
 import { useCallback } from "react";
+
+//const baseUrl = 'http://localhost:3000'; //local 
+const baseUrl = 'https://alura-flix-api-six.vercel.app'; //api vercel 
+
 /**
  * Este hook devuelve funciones que te permiten conectar con una API de videos.
  * A partir de dichas funciones puedes obtener todos los videos y categorías y
@@ -21,7 +25,7 @@ export const useApiVideos = () => {
     //Obtener todos los videos
     const getVideos = useCallback(async () => {
         const response = await request(
-            'http://localhost:3000/videos',
+            `${baseUrl}/videos`,
             { method: 'GET' }
         );
         return response;
@@ -30,7 +34,7 @@ export const useApiVideos = () => {
     //Obtener todas las categorías
     const getCategorias = useCallback(async () => {
         const response = await request(
-            'http://localhost:3000/categorias',
+            `${baseUrl}/categorias`,
             { method: 'GET' }
         );
         return response;
@@ -42,7 +46,7 @@ export const useApiVideos = () => {
             body: JSON.stringify(video),
             headers: { 'Content-Type': 'application/json' }
         }
-        const response = await request('http://localhost:3000/videos', options);
+        const response = await request(`${baseUrl}/videos`, options);
         return response
     }, []);
 
@@ -52,7 +56,7 @@ export const useApiVideos = () => {
             body: JSON.stringify(video),
             headers: { 'Content-Type': 'application/json' }
         }
-        const response = await request(`http://localhost:3000/videos/${video.id}`, options);
+        const response = await request(`${baseUrl}/videos/${video.id}`, options);
         return response;
     }, []);
 
@@ -60,7 +64,7 @@ export const useApiVideos = () => {
         const options = {
             method: 'DELETE',
         }
-        const response = await request(`http://localhost:3000/videos/${id}`, options);
+        const response = await request(`${baseUrl}/videos/${id}`, options);
         return response;
     }, []);
 
