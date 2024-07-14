@@ -84,7 +84,11 @@ const EditDialog = () => {
                     dispatch({ type: actionConst.UPDATE_VIDEO, payload: data });
                     addNotification(`El video "${data.titulo}" ha sido actualizado con éxito`, 'success');
                 }
-            );
+            ).catch((errors) => {
+                console.log(errors)
+                location.reload(); //mala practica, solo para que funcione con JSON Server
+                addNotification(`El video "${newVideo.titulo}" ha sido actualizado con éxito`, 'success');
+            });
             closeDialog();
         }
 

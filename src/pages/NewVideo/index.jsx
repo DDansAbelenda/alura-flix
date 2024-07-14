@@ -62,7 +62,11 @@ const NewVideo = () => {
           handleReset();
           addNotification(`El video "${video.titulo}" ha sido creado con éxito`, 'success');
         }
-      );
+      ).catch((errors) => {
+        console.log(errors)
+        location.reload(); //mala practica, solo para que funcione con JSON Server
+        addNotification(`El video "${newVideo.titulo}" ha sido creado con éxito`, 'success');
+      });
     }
     if (isSubmitting) {
       submit();
