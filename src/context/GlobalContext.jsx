@@ -23,11 +23,15 @@ const GlobalContextProvider = ({ children }) => {
         getCategorias().then(
             (data) => {
                 dispatch({ type: actionConst.FETCH_CATEGORY, payload: data });
+                dispatch({
+                    type: actionConst.SET_SERVER_NOTIFICATION,
+                    payload: { typeError: "", error: false, isLoad: true }
+                })
             }
         ).catch((error) => {
             dispatch({
-                type: actionConst.SET_SERVER_ERROR,
-                payload: { type: error.name, error: true }
+                type: actionConst.SET_SERVER_NOTIFICATION,
+                payload: { typeError: error.name, error: true, isLoad: true }
             });
         });
     }, [getCategorias]);
@@ -37,11 +41,15 @@ const GlobalContextProvider = ({ children }) => {
         getVideos().then(
             (data) => {
                 dispatch({ type: actionConst.FETCH_VIDEOS, payload: data });
+                dispatch({
+                    type: actionConst.SET_SERVER_NOTIFICATION,
+                    payload: { typeError: "", error: false, isLoad: true }
+                })
             }
         ).catch((error) => {
             dispatch({
-                type: actionConst.SET_SERVER_ERROR,
-                payload: { type: error.name, error: true }
+                type: actionConst.SET_SERVER_NOTIFICATION,
+                payload: { typeError: error.name, error: true, isLoad: true }
             })
         });
     }, [getVideos]);

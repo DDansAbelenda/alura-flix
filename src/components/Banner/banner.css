@@ -30,7 +30,7 @@
   z-index: 2;
   box-sizing: border-box;
   width: 100%;
-  padding: 12rem 5rem 7rem;
+  padding: 10rem 2rem;
 }
 
 /*Text section*/
@@ -39,32 +39,61 @@
   display: flex;
   box-sizing: border-box;
   flex-wrap: wrap;
-  width: 45%;
+  width: 48%;
   margin: 0;
   padding: 0;
 }
 .wrapper-text .wrapper-text-title {
-  /*Layout*/
-  width: 20.80763rem;
-
   /*Text*/
   color: var(----color-gray-light, #f5f5f5);
 
   /* Text */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.875rem;
+  font-family: var(--title-big-font-family);
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: normal;
+  text-transform: uppercase;
 }
 
 .wrapper-text .wrapper-text-paragraph {
   color: var(----color-gray-light, #f5f5f5);
 
   /* Text */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--title-big-font-family);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
 }
 
+/*Estilos para tablet*/
+/*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+  /*Content section*/
+  .banner .content {
+    /*Layout*/
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 4rem 1rem;
+  }
+  .wrapper-text {
+    /*Layout*/
+    width: 48%;
+  }
+  .wrapper-text .wrapper-text-title {
+    /* Text */
+    font-size: 1.2rem;
+  }
+
+  .wrapper-text .wrapper-text-paragraph {
+    /* Text */
+    font-size: 1rem;
+  }
+}
+/*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  .banner{
+    display: none;
+  }
+}

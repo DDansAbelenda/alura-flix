@@ -1,30 +1,31 @@
 .button {
   /*Button styles*/
   all: unset;
-  border: 2px solid;
+  border: 0.125rem solid; /* 2px */
   border-color: var(--x-color-gray-light);
   border-radius: 0.625rem;
   box-sizing: border-box;
-  height: 54px;
   position: relative;
-  width: 180px;
-
+  width: 11.25rem; /* 180px */
+  height: 3.375rem; /* 54px */
+  
   /*Text*/
   text-align: center;
   color: #ffffff;
   font-family: "Source Sans Pro-Black", Helvetica;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 24px;
+  line-height: 1.5rem; /* 24px */
 }
 
 .button:disabled {
   border-color: var(--variable-collection-light-gray);
   color: var(--variable-collection-light-gray);
 }
+
 .button:disabled:hover {
-  border: 2px solid var(--variable-collection-light-gray) !important;
+  border: 0.125rem solid var(--variable-collection-light-gray) !important; /* 2px */
   color: var(--variable-collection-light-gray);
   background: transparent !important;
   box-shadow: none !important;

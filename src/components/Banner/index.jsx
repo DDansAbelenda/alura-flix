@@ -16,6 +16,12 @@ const WrapperVideo = styled.a`
   border-radius: 0.9375rem;
   border: 5px solid ${props => props.color};
   background: url(${props => props.imagen}) lightgray 50% / cover no-repeat;
+  background-size: 100% 100%; /* La imagen cubre completamente el contenedor */
+  /*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+    width: 50%;
+    height: 18rem;
+  }
   `
 
 const Banner = ({ video, categoria }) => {
@@ -35,11 +41,9 @@ const Banner = ({ video, categoria }) => {
             text={categoria.nombre}
             classNameTag="principal-tag"
           />
-          <h2 className="wrapper-text-title">Challenge React</h2>
+          <h2 className="wrapper-text-title">{video.titulo}</h2>
           <p className="wrapper-text-paragraph">
-            Este challenge es una forma de aprendizaje. Es un mecanismo donde
-            podrás comprometerte en la resolución de un problema para poder
-            aplicar todos los conocimientos adquiridos en la formación React.
+            {video.descripcion}
           </p>
         </div>
         {/*Sección de video principal */}
@@ -52,11 +56,13 @@ const Banner = ({ video, categoria }) => {
 Banner.propTypes = {
   video: PropTypes.shape({
     imagen: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    titulo: PropTypes.string.isRequired, // Add this line
+    descripcion: PropTypes.string.isRequired
   }).isRequired,
   categoria: PropTypes.shape({
     color: PropTypes.string.isRequired,
-    nombre: PropTypes.string.isRequired // Add this line
+    nombre: PropTypes.string.isRequired
   }).isRequired,
   color: PropTypes.string.isRequired,
   imagen: PropTypes.string.isRequired

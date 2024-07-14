@@ -7,7 +7,7 @@ export const initialState = {
   modalAbierto: false,
   dialogPosition: { top: 0 },
   notifications: [],
-  serverError: { type: "", error: false }
+  serverNotification: { typeError: "", error: false, isLoad: false }
 };
 
 export const videosReducer = (state, action) => {
@@ -42,8 +42,8 @@ export const videosReducer = (state, action) => {
       return { ...state, categorias: action.payload };
     case actionConst.SET_NOTIFICATIONS:
       return { ...state, notifications: action.payload };
-    case actionConst.SET_SERVER_ERROR:
-      return { ...state, serverError: action.payload }
+    case actionConst.SET_SERVER_NOTIFICATION:
+      return { ...state, serverNotification: action.payload }
     default:
       return state;
   }

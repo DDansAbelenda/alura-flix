@@ -7,5 +7,5 @@ export const actionConst = {
   FETCH_VIDEOS: 6,
   FETCH_CATEGORY: 7,
   SET_NOTIFICATIONS: 8,
-  SET_SERVER_ERROR: 9,
+  SET_SERVER_NOTIFICATION: 9,
 };

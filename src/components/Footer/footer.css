@@ -1,6 +1,7 @@
 footer {
   /*Layout*/
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 7.8125rem;
   justify-content: center;
@@ -11,7 +12,35 @@ footer {
   box-shadow: 0px 5px 29px 0px rgba(34, 113, 209, 0.7);
 }
 
-img {
+footer img {
   width: 10.52813rem;
   height: 2.5rem;
+}
+
+.develop-by {
+  color: #257be5;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-shadow: 0px 5px 29px #257be5;
+}
+
+.buttons-container-footer {
+  display: none;
+}
+
+/*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  footer img {
+    display: none;
+  }
+  .develop-by {
+    display: none;
+  }
+  .buttons-container-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+  }
 }

@@ -77,3 +77,34 @@ textarea {
   background: rgba(0, 0, 0, 0.9);
   box-shadow: 0px 0px 12px 4px #2271d1 inset;
 }
+
+/*Estilos para tablet*/
+/*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+  .dialog-container {
+    width: 85%;
+  }
+
+  .dialog-container .dialog-content {
+    width: 70%;
+  }
+
+  .dialog-container .dialog-content .title {
+    font-size: 2.2rem;
+  }
+}
+
+/*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  .dialog-container {
+    width: 90%;
+  }
+
+  .dialog-container .dialog-content {
+    width: 90%;
+  }
+
+  .dialog-container .dialog-content .title {
+    font-size: 1.8rem;
+  }
+}

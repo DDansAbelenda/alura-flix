@@ -9,9 +9,7 @@ const Notification = ({ message, type, duration = 5000, onClose }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
-            if (onClose) onClose();
         }, duration);
-
         return () => clearTimeout(timer);
     }, [duration, onClose]);
 

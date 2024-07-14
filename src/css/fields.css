@@ -61,7 +61,6 @@
   border-color: var(--Dark-Grey, #262626);
 }
 
-
 /*Estilos para errores*/
 .input-wrapper input.invalid,
 .input-wrapper textarea.invalid,
@@ -75,4 +74,29 @@
 }
 .input-wrapper select.invalid option {
   color: #fff;
+}
+
+/*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+  .input-wrapper label {
+    /*Font*/
+    font-size: 1.2rem;
+  }
+
+  .field {
+    /*Font*/
+    font-size: 0.8rem;
+  }
+}
+
+/*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  .input-wrapper label {
+    /*Font*/
+    font-size: 0.9rem;
+  }
+  .field {
+    /*Font*/
+    font-size: 0.8rem;
+  }
 }

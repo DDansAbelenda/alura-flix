@@ -1,0 +1,42 @@
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link.active .button {
+  border-radius: 0.625rem;
+  border: 2px solid var(--Blue, #2271d1);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 12px 4px #2271d1 inset;
+}
+
+/*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  /*
+   *Estilos para los botones del footer
+  */
+  .nav-link.footer-button .button {
+    border: none;
+    width: 3rem;
+    font-size: 1.7rem;
+    border-radius: 3.125rem
+  }
+
+  .nav-link.active.footer-button .button {
+    /*Style*/
+    border-radius: 3.125rem;
+    background: rgba(34, 113, 209, 0.24);
+    box-shadow: none;
+    color: #2271d1;
+    /*Size*/
+    border: 2px solid var(--Blue, #2271d1);
+    width: 13rem;
+    /*Font*/
+    font-size: 1.2rem;
+    /*Layout*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    flex: 1;
+  }
+}

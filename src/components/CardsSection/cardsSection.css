@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 0rem 2rem;
-  margin-bottom: 3rem;
 }
 
 .cards-section-cards-container {
@@ -15,4 +14,17 @@
   padding-bottom: 1rem;
   /*Scrollbar*/
   scrollbar-color: var(--scrollbar-bar-color) var(--scrollbar-base-color);
+}
+
+/*Estilos para tablet*/
+/*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+  .card-section {
+    gap: 1.5rem;
+  }
+  .cards-section-category-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

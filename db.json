@@ -18,16 +18,8 @@
   ],
   "videos": [
     {
-      "id": "5adf",
-      "titulo": "Qué Significa Pensar Como Programador",
-      "categoria": "1",
-      "imagen": "/img/Fronted/image-1.jpg",
-      "url": "https://www.youtube.com/embed/ov7vA5HFe6w?si=rFYWWhqKMEWzxiJn",
-      "descripcion": "¿Cuáles son las principales características de un programador? ¿Qué habilidades y competencias debe tener alguien que quiere seguir esa carrera? En este video Christian Velasco nos habla de las principales características de un Programador."
-    },
-    {
       "id": "63df",
-      "titulo": "Cuando usar let, var y const 1234",
+      "titulo": "Cuando usar let, var y const",
       "imagen": "/img/Fronted/image-2.jpg",
       "categoria": "1",
       "url": "https://www.youtube.com/embed/PztCEdIJITY?si=hfEWd-LVzlUvP_qT",
@@ -52,8 +44,8 @@
     {
       "id": "6b6a",
       "titulo": "Spring Framework. ¿Qué es ?",
-      "categoria": "2",
       "imagen": "/img/Backend/image-1.jpg",
+      "categoria": "2",
       "url": "https://www.youtube.com/embed/t-iqt1b2qqk?si=HaMciLKuslok023B",
       "descripcion": "¿Busca un framework  para utilizar en sus proyectos? ¿Conoce Spring Framework? Spring es el framework más usado de Java. Nos ofrece herramientas que nos permiten crear proyectos más avanzados, con mejores prácticas y en menor tiempo. También posee una gran comunidad, lo que nos brinda muchísima documentación y ayuda."
     },
@@ -76,8 +68,8 @@
     {
       "id": "f5da",
       "titulo": "¿Qué son las Soft Skills?",
-      "categoria": "3",
       "imagen": "/img/Innovacion y gestion/image-1.jpg",
+      "categoria": "3",
       "url": "https://www.youtube.com/embed/vhwspfvI52k?si=jWQPbz3Ph7gX03Zb",
       "descripcion": "¿Qué son las Softskills y por qué es tan importante desarrollarlas para posicionarse en el mercado laboral? En este video de Alura Tips, Pri Stuani nos habla de las habilidades más buscadas por las empresas en sus profesionales y cómo las Soft Skills te ayudan en el día a día."
     },

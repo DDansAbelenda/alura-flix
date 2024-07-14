@@ -1,45 +1,41 @@
 
 import styled from "styled-components"
-
+import PropTypes from "prop-types"
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;// Asegura que el mensaje ocupe toda la altura de la vista
+    height: 100vh; // Asegura que el mensaje ocupe toda la altura de la vista
     text-align: center;
-    color: #333; // Un color neutro que probablemente combine con tu paleta
-    background-color: #f2f2f2; // Un fondo suave
-    padding: 20px;
-    border-radius: 8px
+    padding: 1.25rem;
 `
+
 const Title = styled.h1`
-    font-size: 24px;
+    color: #257BE5;
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 `
 
 const Paragraph = styled.p`
-    font-size: 16px;
-    margin-bottom: 20px;
+    color: #e7e3e3;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
 `
-const Button = styled.button`
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff; // Un color que destaque pero que combine con tu sitio
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-`
+
+
 const NoVideos = ({ message }) => {
     return (
         <Container>
-            <Title>No hay videos</Title>
+            <Title>Error al cargar la página</Title>
             <Paragraph>{message}</Paragraph>
-            <Button>Volver a la página principal</Button>
         </Container>
     )
+}
+
+NoVideos.propTypes = {
+    message: PropTypes.string.isRequired
 }
 
 export default NoVideos;

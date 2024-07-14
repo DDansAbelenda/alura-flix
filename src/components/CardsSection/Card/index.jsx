@@ -16,19 +16,27 @@ const CardContainer = styled.div`
   border: 5px solid ${props => props.color || 'rgba(0, 0, 0, 0.1)'};
   border-radius: 0.9375rem;
   /*Size*/
-  width: 25rem;
-  height: 17rem;  
-  min-width: 25rem;
-  min-height: 17rem;
+  width: 40%;
+  min-width: 40%;
   /*Layout*/
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  /*Tablet 900px a 800px*/
+@media (max-width: 900px) {
+    width: 47.5%;
+    min-width: 47.5%;
+ }
+ /*Movil 799px a 0px*/
+@media (max-width: 799px) {
+  width: 70.5%;
+  min-width: 96%;
+}
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 14rem;
  `;
 
 const VideoImage = styled.img`
@@ -49,7 +57,7 @@ const ButtonsContainer = styled.div`
   border-top: 5px solid ${props => props.color || 'rgba(0, 0, 0, 0.1)'};
   box-shadow: 0px -3px 4px 0.5px ${props => props.color || 'rgba(0, 0, 0, 0.1)'} inset;
   /* Size */
-  padding: 0.625rem;
+  padding: 0.8rem;
   box-sizing: border-box;
 `;
 

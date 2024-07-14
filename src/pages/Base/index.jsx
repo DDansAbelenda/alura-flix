@@ -17,6 +17,11 @@ const Base = () => {
   return (
     <main>
       <Header />
+      <Container>
+        {/* Outlet es el marcador de posición para las rutas hijas */}
+        <Outlet />
+        {!!videoSeleccionado && <EditDialog />}
+      </Container>
       {   // Trabajando con las notificaciones
         notifications.map((notification, index) => (
           <Notification
@@ -27,11 +32,6 @@ const Base = () => {
           />
         ))
       }
-      <Container>
-        {/* Outlet es el marcador de posición para las rutas hijas */}
-        <Outlet />
-        {!!videoSeleccionado && <EditDialog />}
-      </Container>
       <Footer />
     </main>
   );
