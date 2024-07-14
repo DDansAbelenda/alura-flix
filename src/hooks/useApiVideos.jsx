@@ -47,6 +47,7 @@ export const useApiVideos = () => {
             headers: { 'Content-Type': 'application/json' }
         }
         const response = await request(`${baseUrl}/videos`, options);
+        location.reload(); //mala practica, solo para que funcione con JSON Server
         return response
     }, []);
 
@@ -57,6 +58,7 @@ export const useApiVideos = () => {
             headers: { 'Content-Type': 'application/json' }
         }
         const response = await request(`${baseUrl}/videos/${video.id}`, options);
+        location.reload(); //mala practica, solo para que funcione con JSON Server
         return response;
     }, []);
 
@@ -65,6 +67,7 @@ export const useApiVideos = () => {
             method: 'DELETE',
         }
         const response = await request(`${baseUrl}/videos/${id}`, options);
+        location.reload(); //mala practica, solo para que funcione con JSON Server
         return response;
     }, []);
 
