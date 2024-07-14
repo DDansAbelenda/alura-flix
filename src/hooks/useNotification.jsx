@@ -15,6 +15,8 @@ const useNotification = () => {
     };
 
     const removeNotification = (index) => {
+        //! Mala práctica solo usar para JSON Server
+        location.reload(); //mala practica, solo para que funcione con JSON Server
         dispatch(
             {
                 type: actionConst.SET_NOTIFICATIONS,

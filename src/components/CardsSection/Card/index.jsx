@@ -93,8 +93,8 @@ const Card = ({ video, color }) => {
         addNotification(`El video "${data.titulo}" ha sido eliminado con éxito`, 'success');
       }
     ).catch((errors) => {
+      //! Mala práctica, solo para usar con JSON Server
       console.log(errors)
-      location.reload(); //mala practica, solo para que funcione con JSON Server
       addNotification(`El video "${video.titulo}" ha sido eliminado con éxito`, 'success');
     });
 

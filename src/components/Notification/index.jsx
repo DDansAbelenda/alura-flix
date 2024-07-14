@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for props validation
 import './notification.css'; // Para agregar estilos
 
-const Notification = ({ message, type, duration = 5000, onClose }) => {
+const Notification = ({ message, type, duration = 3000, onClose }) => {
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
+            //! Mala práctica solo usar para JSON Server
+            location.reload(); //mala practica, solo para que funcione con JSON Server
         }, duration);
         return () => clearTimeout(timer);
     }, [duration, onClose]);

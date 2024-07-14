@@ -64,7 +64,7 @@ const NewVideo = () => {
         }
       ).catch((errors) => {
         console.log(errors)
-        location.reload(); //mala practica, solo para que funcione con JSON Server
+        //! Mala práctica, solo para usar con JSON Server
         addNotification(`El video "${newVideo.titulo}" ha sido creado con éxito`, 'success');
       });
     }
